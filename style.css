@@ -1,0 +1,329 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #F0F4F8;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  /* Hidden Class */
+  .hidden {
+    display: none;
+  }
+  
+  /* Header */
+  header {
+    padding: 25px 0 15px;
+    background-color: #ecf0f3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .title {
+    font-size: 2.8rem;
+    color: #1e3a5f;
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 1.15rem;
+    color: #5f6f81;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  /* ==== Controls Section ==== */
+  .controls-section,
+  .samples-section {
+    background: #ffffff;
+    margin: 20px auto;
+    max-width: 640px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #dfe6ed;
+  }
+  
+  .controls input,
+  .controls select,
+  .controls button {
+    margin: 10px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid #ccd6dd;
+    background-color: #f9fbfd;
+    color: #2c3e50;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .controls input:hover,
+  .controls select:hover {
+    background-color: #e3f2fd;
+  }
+  
+  /* Buttons */
+  .controls button {
+    background: #2980b9;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .controls button:hover {
+    background: #1f6396;
+  }
+  
+  /* ==== Sample Images ==== */
+  .sample-images {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .sample-img {
+    width: 110px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 2px solid #90caf9;
+  }
+  
+  .sample-img:hover {
+    transform: scale(1.06);
+    border-color: #42a5f5;
+  }
+  
+  /* ==== Puzzle Game Area ==== */
+  #gameSection {
+    margin-top: 0px;
+  }
+  
+  .status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #37474f;
+  }
+  
+  .puzzle-container {
+    margin: 0 auto;
+    display: grid;
+    gap: 2px;
+    width: 400px;
+    height: 400px;
+    background-color: #ecf0f3;
+    border: 2px solid #b0bec5;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+  
+  .tile {
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+    background-size: 400px 400px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  .tile:hover {
+    outline: 2px dashed #5c6bc0;
+    transform: scale(1.05);
+    z-index: 2;
+  }
+  
+  .tile.dragging {
+    opacity: 0.85;
+    cursor: grabbing;
+    transform: scale(1.08);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+  }
+  
+  .tile.drag-over {
+    outline: 3px solid #42a5f5;
+    transform: scale(1.1);
+    z-index: 4;
+  }
+  
+  .tile.selected {
+    outline: 3px solid #26c6da;
+    transform: scale(1.07);
+    z-index: 3;
+  }
+  
+  /* ==== Game Buttons ==== */
+  #gameButtonsContainer {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  #gameButtonsContainer button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #gameButtonsContainer button:first-child {
+    background: #ef5350;
+    color: white;
+  }
+  
+  #gameButtonsContainer button:first-child:hover {
+    background: #d32f2f;
+  }
+  
+  #gameButtonsContainer button:last-child {
+    background: #26c6da;
+    color: white;
+  }
+  
+  #gameButtonsContainer button:last-child:hover {
+    background: #00acc1;
+  }
+  
+  /* ==== Modal ==== */
+  #successMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #successMessage.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+  }
+  
+  .modal-content img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .modal-content h2 {
+    color: #2ecc71;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content button {
+    background: #42a5f5;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background: #1e88e5;
+  }
+  
+  /* ==== Hint Button ==== */
+  .hint-image {
+    display: none;
+    position: absolute;
+    width: 400px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  #hintBtn:hover + #hintImage,
+  #hintImage.show {
+    display: block;
+  }
+  
+  #hintBtn {
+    background: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #hintBtn:hover {
+    background: #3949ab;
+  }
+  
+  /* ==== Responsive ==== */
+  @media (max-width: 600px) {
+    body {
+      margin: 15px;
+    }
+  
+    .puzzle-container {
+      width: 90vw;
+      height: 90vw;
+    }
+  
+    .sample-img {
+      width: 80px;
+      height: 60px;
+    }
+  
+    .hint-image {
+      max-height: 400px;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .section-title {
+      font-size: 1.1rem;
+    }
+  
+    .controls button,
+    .controls input,
+    .controls select {
+      font-size: 0.75rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .sample-img {
+      height: 60px;
+      object-fit: cover;
+    }
+  
+    .hint-image {
+      max-height: 400px;
+      max-width: 300px;
+    }
+  }
+  

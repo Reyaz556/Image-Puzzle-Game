@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Puzzle Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="title">🧠 Modern Puzzle Builder</h1>
+    <p class="subtitle">Upload or choose an image to play the game. Tap or drag to start solving!</p>
+  </header>
+
+  <!-- Puzzle Setup Controls -->
+  <section class="controls-section">
+    <div class="controls">
+      <h2 class="section-title">📸 Select Image Source</h2>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <h2 class="section-title">🎚️ Choose Difficulty</h2>
+      <select id="difficulty">
+        <option value="3">Easy (3×3)</option>
+        <option value="4">Medium (4×4)</option>
+        <option value="5">Hard (5×5)</option>
+        <option value="6">Extreme (6×6)</option>
+      </select>
+      <button id="startBtn" class="hidden">🚀 Start Game</button>
+    </div>
+  </section>
+
+  <!-- Sample Images Section -->
+  <section class="samples-section">
+    <h2 class="section-title">🌄 Sample Images</h2>
+    <div class="sample-images">
+      
+
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" class="sample-img" />
+      <img src="https://images.unsplash.com/photo-1745990652119-f13cced69b7c?q=80" class="sample-img" />
+      <img src="https://images.unsplash.com/photo-1746311432520-745a303b10bf?q=80" class="sample-img" />
+      <img src="https://images.unsplash.com/photo-1745933323139-558ed699835d?q=80" class="sample-img" />
+    </div>
+  </section>
+
+  <!-- Puzzle Game Area -->
+  <section id="gameSection" class="hidden">
+    <div class="status">
+      <span id="moveCount">🔢 Moves: 0</span>
+      <span id="timer">⏱️ Time: 0s</span>
+    </div>
+    <div id="puzzleContainer" class="puzzle-container"></div>
+
+    <div id="gameButtonsContainer">
+      <!-- Restart and Shuffle Buttons dynamically injected -->
+    </div>
+
+    <button id="hintBtn" class="button hidden">💡 Show Hint</button>
+    <img id="hintImage" class="hint-image" alt="Hint Image" />
+  </section>
+
+  <!-- Puzzle Completion Modal -->
+  <div id="successMessage" class="hidden">
+    <div class="modal-content">
+      <img id="completedImage" src="" alt="Completed Puzzle"/>
+      <h2>🎊 Puzzle Complete!</h2>
+      <p>Moves: <span id="finalMoves">0</span></p>
+      <p>Time: <span id="finalTime">0</span> seconds</p>
+      <button id="restartBtn">🔁 Try Again</button>
+    </div>
+  </div>
+
+  <!-- Audio Feedback -->
+  <audio id="successSound" src="sounds/success.mp3"></audio>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
